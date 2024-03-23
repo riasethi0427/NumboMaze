@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <title>Easy Level</title>
+  <link rel="stylesheet" href="maze.css">
+</head>
+
+<body>
+  <h1>
+    <img src="leveleasy.png" alt="Easy Level" width="500">
+    <!--Image resource - Font: Punto, created on Canva.com-->
+  </h1>
+  
+  <p class="timer" id="timer" ></p> 
+  <!--Placeholder for displaying timer-related information-->
+  <p class="lives" id="lives"></p>
+ <!-- Placeholder for displaying information related to the number of lives in 
+  NumboMaze -->
+
+  <div id="right-container">
+  </div> 
+  <!--Placeholder for JS content -->
+
+  <div id="question-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="question-text"></p>
+      <input type="number" id="user-answer" placeholder="Your answer">
+      <button onclick="submitAnswer()">Submit</button>
+    </div>
+  </div>
+  <!-- https://drupal.stackexchange.com/questions/141998/open-a-modal-just-before-submit-to-get-an-answer-yes-or-no-and-then-submit
+  This represents a modal (question-modal) with a content container (modal-content).
+  This website taught me how to use a question-modal. This is a modal that displays a question 
+  and allows the user to input a numeric answer with a submit button. The close button
+  is be used to close the modal. -->
+
+  <div id="popup" class="popup">
+    <div class="popup-content" id="popup-content">
+      <p id="popup-text"></p>
+      <input type="text" name="popup-input" id="popup-input" class="popup-input" placeholder="Your answer" autocomplete="off"/>
+      <button class="popup-close" id="popup-close" onclick="continueGame()">
+        <img src="next.png" alt="Next" width="75">
+        <!--Image resource - Font: Punto, created on Canva.com-->
+      </button>
+    </div>
+  </div>
+
+  <div id="start-popup" class="popup">
+    <div class="popup-content" id="popup-content">
+      <p id="start-popup-text">To begin the game, use the arrow keys to navigate your character to 
+        each brain and respond to the questions. You have three lives and 60 seconds! </p>
+        <button class="popup-close" id="startpopup-close" onclick="startGame()">
+          <img id="startgame-image" src="startgame.png" alt="Start Game" width="75">
+            <!--Image resource - Font: Punto, created on Canva.com-->
+        </button>
+      </button>
+    </div>
+  </div>
+  <!--Resource used for popup: https://www.geeksforgeeks.org/how-to-create-popup-box-using-html-and-css/ 
+  These HTML snippets represent modal pop-ups, often used to display messages or gather user input.  
+  This modal (start-popup) contains a content container (popup-content) with a paragraph 
+  (<p id="start-popup-text">...</p>) providing instructions for starting the game. 
+  This website taught me how to design and display information, as well gather user input through 
+  a popup. The first popup is focused on getting user input, also related to the time.
+  The second one provides instructions for starting the game and includes a button to initiate
+  the game with the startGame() function. -->
+
+  <div id="generic-popup" class="popup">
+    <div class="popup-content" id="popup-content">
+      <p id="generic-text-line-1"></p>
+      <p id="generic-text-line-2"></p>
+      <div class="button-container">
+        <button class="btn-generic" id="generic-close" onclick="closeGenericPopup()">Exit to Home</button>
+        <button class="btn-generic" id="generic-okay" onclick="handleOkay()">Play Again</button>
+        <button class="btn-generic" id="generic-next" onclick="handleToHard()">Go to Hard Level</button>
+      </div>
+    </div>
+  </div>
+  <!--Resource for modal/functions: https://sharepoint.stackexchange.com/questions/215510/i-need-to-call-a-function-when-modals-are-invoked 
+  This HTML code represents a modal (a pop-up window) with three buttons and two paragraphs.
+  This resource taught me how to modal with text paragraphs and three buttons that perform 
+  different actions when clicked. The actual functionality of the buttons calls
+  JavaScript functions (closeGenericPopup(), handleOkay(), and handleToHard()) that 
+  are defined in script.js. -->
+
+  <script src="script.js"></script>
+  <!-- Include the JavaScript file for Hard Level -->
+
+</body>
+</html>

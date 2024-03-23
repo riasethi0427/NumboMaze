@@ -1,0 +1,494 @@
+body {
+  background-color: rgb(210, 210, 255);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;  /* Hide overflow to prevent horizontal scrolling */
+  font-family: garamond;
+  padding-bottom: 20px;
+}
+/* Resource used (overflow: hidden): https://developer.mozilla.org/en-US/docs/Web/CSS/overflow  
+   The CSS property overflow: hidden; is used to control how content that overflows 
+   the box (container) should be handled. In this website, I learned Hidden: It means that 
+   if the content overflows the box, it will be clipped or hidden, and the user won't be able 
+   to see it. This is to prevent content from leaving the boundaries of its container.
+*/
+
+h1 {
+  text-align: center; 
+}
+
+h2, h3 {
+  text-align: left;
+  font-size: 30px;
+}
+
+h3 {
+  top: 18px;
+  z-index: 0;
+  left: 875px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 40px;
+}
+
+img[alt="Game Info"] {
+/* Select the <img> element with an 'alt' attribute equal to "Game Info" */
+  position: absolute;
+  top: 120px; 
+  left: 10px; 
+  z-index: 2;
+}
+/* A lot of these paramaters  (z-index, top, position, font-size, etc.) I put were taken from 
+what we have been provided in class - noteably the Girl Jumping assignment. 
+*/
+
+table {
+  width: 350px;
+  height: 350px;
+  border-collapse: collapse; /* Ensures table's borders & cell spacing*/
+  background-color: rgb(220, 220, 255);
+}
+/* Resource used (border-collapse): https://css-tricks.com/almanac/properties/b/border-collapse/
+	Border-collapse ensures that the table's borders and cell spacing are collapsed, 
+	providing a cleaner and more unified appearance for the table structure.
+	In this website, I learned that this specifies that the borders and spacing between 
+	table cells should be collapsed into a single border. This means that adjacent cell 
+	borders will be combined into a single border, and there will be no spacing between cells.
+*/
+
+th, td {
+  border: 1px solid black;
+}
+
+li {
+/* Style rules for <li> elements */
+  list-style: decimal; /* Use decimal numbering for list items */
+  text-align: left;
+  color: black;
+  padding-bottom: 6px;
+}
+
+button {
+/* Styling for button */
+  font-family: garamond;
+  font-size: 50px;
+  border: 1px solid black;
+  padding: 10px 150px 10px 150px;
+  display: block;  /* Make buttons a block-level element to take full width */
+  margin: 0 auto;  /* Center buttons horizontally by setting left and right margins to 'auto' */
+  cursor: pointer; /* Set the cursor to a pointer to indicate interactivity */
+  background-color: rgb(220, 220, 255);
+}
+
+.level_heading {
+  text-align: center;
+  position: fixed;
+}
+
+.container {
+  display: flex; /* Use flexbox to create a flex container */
+  justify-content: space-around; /* Distribute child elements evenly along the main axis */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Resource used (display: flex, justify-content):  https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content  
+   Display: flex; is used to define a flex container, turning all its direct children into 
+   flex items.justify-content: space-around is used to distribute the flex items evenly 
+   with equal space around them along the main axis. 
+   In this website, I learned the display: flex property allows you to create a flexbox layout, 
+   providing a more efficient way to design complex and responsive page layouts. The 
+   justify-content: space around means contents will be evenly distributed with equal space
+  around them along the main axis (by default, this would be the x-axis).
+*/
+
+.radio-label {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+#right-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: top 0.3s, left 0.3s; /* Apply a smooth transition effect to the 'top' and 'left' properties with a duration of 0.3 seconds */
+}
+/* Resource used (transition): https://www.w3schools.com/cssref/css3_pr_transition.php   
+   Transition is used so when the user moves the image, the transition appears smooth 
+   throughout the movement. 
+   In this website, I learned that the transition property is adding a smooth animation 
+   effect to the changes in the properties of the image, making any movements
+   visually gradual for the user.
+*/
+
+.brain {
+  width: 7rem;  /* Set elements with class "brain" to 7rem */
+  height: 7rem;
+  position: absolute;
+}
+/* Resource used (rem): https://medium.com/code-writers/what-are-rem-and-em-in-css-415a70dfe45a
+   1 rem is equal to the computed font-size of the root element. 
+   This website helped me learn that the use of rem is particularly useful for creating 
+   scalable and responsive designs, which fit perfectly for the intent of the brain images. 
+*/
+
+#character {
+  z-index: 100;
+  width: 10%;
+}
+
+.popup {
+  position: fixed;
+  z-index: 1000;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the popup horizontally and vertically on the viewport */
+  background-color: rgb(227, 225, 255);
+  width: 400px;
+  max-width: 400px;
+  height: 250px; 
+  overflow-y: auto; /* Enable vertical scrolling if the content overflows the popup height */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  visibility: hidden; /* Set the initial visibility of the popup to hidden */
+} 
+/* Resource used (visibility: hidden):  https://www.thoughtco.com/display-none-vs-visibility-hidden-3466884 
+   Visibility: hidden is a property  used to hide an element while still taking up space in the layout. 
+   In this website, I learned when visibility is set to hidden, the element is not visible 
+   on the screen, but its space is reserved.
+   
+   Resource used (box-shadow): https://css-tricks.com/almanac/properties/b/box-shadow/
+   This property adds a shadow to the element. The values 0 2px 5px rgb(0, 0, 0) represent 
+   the horizontal offset (0), vertical offset (2px), blur radius (5px), and color (rgb(0, 0, 0)) 
+   of the shadow. This website allowed me to learn that a box-shadow creates a subtle
+   shadow effect to give the element a sense of emphasis.
+    
+   Resource used (overflow-y): https://www.w3schools.com/css/css_overflow.asp#:~:text=overflow%2Dx%20specifies%20what%20to,content%20overflows%20an%20element's%20box.
+   This property determines how content that overflows the element's box vertically should be handled. 
+   "auto" means that a scrollbar will appear if the content exceeds the specified height. 
+   I learned about the difference between overflow and overflow-y in this website, which is 
+   overflow-y specifically controls the vertical overflow of content within an element. 
+*/
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* flex items inside the "button-container" will be arranged vertically */
+  align-items: flex-start;
+}
+/* Resource used (flex-direction): https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+   The flex-direction property in CSS is used within a flex container to define the direction in which its 
+   flex items are placed in the flex container. This website taught me how to use it and its four 
+   values it takes in: row, row-reverse, column, or column-reverse. Additionally, the align-items: 
+   flex-start; property is used to align the flex items to the start of the cross axis. In a column layout,
+    this means that the items (buttons in this case) will be aligned to the left side of the container. 
+*/
+
+.popup-content {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#popup-next {
+  visibility: hidden;
+}
+
+#popup-text {
+    margin-top: 15px; /* Add margin space at the top of the element */
+    color: rgb(234, 89, 111);  
+    font-size: 20px;
+    font-weight: bold;   
+}
+
+#user-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; /* To alter the default box model used by the browser for sizing elements */
+  margin-top: 15px;
+
+}
+
+#popup-close {
+  color: black;
+  font-family: garamond;  
+  font-size: 20px;
+  font-weight: bold;
+  width: 40%;
+  margin: 16px auto;
+  cursor: pointer;
+  text-align: center;
+}
+
+#popup-close img {
+  display: block;
+  margin: 0 auto; 
+  margin-left: -35px; /* Adjust the left margin to shift the image to the left by 35 pixels */
+}
+
+.start-popup-close {
+  font-size: 30px!important;
+  margin: 48px auto!important;
+  padding: 10px 50px!important;
+}
+/* Resource used (!important): https://www.w3schools.com/css/css_important.asp
+   The !important rule in CSS is used to give a declaration higher specificity, making it 
+   override other conflicting styles regardless of the normal specificity rules. This website helped me 
+   learn how to do this because I was struggling with the popup styling and kept getting system errors on 
+   the start popup. Doing this allowed me to style it better.
+*/
+
+.popup-input {
+  width: 100%;
+  height: 40px;  
+  padding: 8px;
+  box-sizing: border-box; /* Include padding and border in the total width and height */
+  border: 1px solid #ccc; /* Light grey */
+  border-radius: 4px;
+  font-family: garamond;
+  font-size: 20px;  
+}
+
+#start-popup-text {
+  font-family: garamond;
+  font-size: 25px;  
+  font-weight: 500; 
+  color: black; 
+  margin-bottom: 10px; /* Add margin space at the bottom */
+}
+
+#startpopup-close {
+  width: 90px;  
+  height: 50px;  
+  position: relative;  
+  top: 50% ;  /* Shift the element vertically to the center by 50% */
+}
+
+#startgame-image {
+  width: 80%;   /* Set the width to 80% of the parent container */
+  height: auto; 
+  position: absolute;  
+  top: 50%;  
+  left: 50%;  
+  transform: translate(-50%, -50%);   /* Center the element both horizontally and vertically */
+}
+
+#startButton {
+  top: 200px;
+  width: 600px;  
+  height: 80px;  
+}
+
+#startButton img {
+  width: 200px;  
+  top: 90px;  
+}
+
+.modal {
+  display: none; /* Hide the modal by default */
+  position: fixed; 
+  z-index: 1; /* Set the stacking order to 1 (on top of other elements) */
+  left: 0; /* Align the modal to the top-left corner of the viewport */
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable vertical scrolling if the content overflows the modal height */
+  background-color: rgb(0, 0, 0);
+}
+
+.button-and-text-container {
+  display: flex; /* Create a flex container with column direction */
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-text-row {
+  white-space: nowrap; /* Prevent line breaks within the row */
+  font-family: garamond;
+}
+
+.modal-content {
+  background-color: rgb (254,254,254); /* light-grey */
+  padding: 20px;
+  border: 1px solid rgb (136,136,136);
+  width: 30%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.info-image {
+  position: absolute;
+  top: 120px;
+  right: 20px;  
+  z-index: 2;
+  width: 200px;  
+}
+
+.info-container {
+  position: relative;
+  display: inline-block;
+}
+/* Resource used (inline-block): https://www.samanthaming.com/pictorials/css-inline-vs-inlineblock-vs-block/ 
+
+ This CSS code implements an inline-block value for the display property, which
+ makes the element behave as an inline-level block container. This means that the element 
+ will flow within the content as an inline element but can have block-level properties. 
+ In this website, I learned that CSS inline elements flow within the content and 
+ inline-block elements flow as inline elements but can have block-level properties.
+*/
+
+
+.timer {
+  position: absolute;
+  font-size: xx-large;  /* Set the font size extra extra-large */
+  font-family: garamond; 
+  top: 0;
+  right: 10px;  
+  padding: 10px;
+  border: 2px solid black;   /* Add a 2-pixel solid border with black color */
+  background-color: rgb(210, 210, 255);
+  border-radius: 5px;
+}
+
+.lives {
+  position: absolute;
+  font-family: garamond; 
+  top: 80px;
+  right: 10px;  
+  padding: 10px;
+  background-color: rgb(210, 210, 255);
+  border-radius: 5px;
+}
+
+.tooltip {
+  display: none; /* Hide the tooltip by default */
+  position: absolute;
+  top: 60px;
+  left: 230px;
+  z-index: 1;
+  background-color: rgb(220, 220, 255);
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 0 5px rgba (0, 0, 0,0.2); /* Apply a box shadow for a subtle shadow effect */
+  width: 800px; 
+}
+/* Resource used (box-shadow properties): http://web.simmons.edu/~grovesd/comm244/notes/week6/box-shadow
+
+This CSS code applies a box shadow to an element with the following characteristics:
+   - No horizontal or vertical offset (0 0).
+   - No blur (0).
+   - A 5-pixel spread from the element (0 0 0 5px).
+   - The shadow is a semi-transparent black color (rgba(0, 0, 0, 0.2)).
+   The resource provided valuable insights to me for the box-shadow property and its parameters.
+*/
+
+.tooltip p {
+  margin: 0; 
+  line-height: 1.5;  
+}
+
+/* Resource used (line-height): https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
+
+ This CSS code sets the line height of the text within an element. The line height 
+ property defines the amount of space above and below inline elements in the element's box.
+ This resource provided a documentation on CSS, and their explanation of the line-height property 
+ was referenced to understand its usage  and impact on text layout.
+*/
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+/* Resource used (hover tools): https://www.w3schools.com/css/css_tooltip.asp 
+
+This CSS code defines the styling for a tooltip that remains hidden until 
+hovered over. This website helped me learn how the hovering tool functions and how to implement 
+it in my CSS and HTML. */
+
+.info-image:hover + .tooltip {
+  display: block;
+}
+/* Resource used (combinators): https://www.w3schools.com/css/css_combinators.asp 
+
+ This CSS code states that when an element with the class .info-image is being hovered 
+ (:hover),the immediately following sibling with the class .tooltip should have its display property
+ set to block. 
+ This website allowed me to learn about the +, or combinator, selector. It is particularly useful 
+ when you want to style an element based on its relationship with an immediately 
+ following sibling (has the same parent). */
+
+/* This is all the styling of the instructions that will be displayed 
+when the hover tool is used. */ 
+.instructions {
+  font-family: garamond;
+} /* adjusting style for instructions title  */
+
+.instructions h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+} /* instructions headers  */
+
+.instructions ol {
+  padding-left: 20px;
+} /* ordered list  */
+
+.instructions li {
+  font-weight: bold;
+  margin-bottom: 5px;
+} /* instructions list (numbers 1,2,3,,etc) */
+
+.instructions p {
+  margin-top: 5px;
+  margin-bottom: 15px;
+} /* instructions paragraph */
+
+.medium-text {
+  font-family: garamond;
+  font-size: 25px!important;  
+  font-weight: 500; 
+  color: black; 
+  margin-bottom: 10px;  
+}
+
+.explain-p {
+  text-align: left;
+  margin-block-start: 0px;
+  margin-block-end: 8px;   /* Set the margin at the block-end (bottom) to 8 pixels */
+}
+
+.question {
+  font-size: 24px;
+}
+
+.before-question {
+  font-size: 16px;
+  color: black;
+
+}
+.popup-content {
+  text-align: center;
+}
+
+.button-container {
+  display: flex;   /* Create a flex container with column direction */
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-generic {
+  width: 400px;
+  text-align: center;
+  font-size: 20px;
+  margin: 8px auto;
+  padding: 10px;
+}
+
+.red-class {
+  color: rgb(234, 89, 111);
+  font-size: 25px; 
+  font-weight: 700; 
+}
